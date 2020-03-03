@@ -18,11 +18,11 @@ function CharacterPage() {
         onIonScrollEnd={() => {}}
       >
         <IonRow>
-          {fakeCharacterData.map(characterInfo => {
+          {fakeCharacterData.map(CharacterInfo => {
             return (
               <CharacterCard
-                key={characterInfo.Name}
-                characterInfo={characterInfo}
+                key={CharacterInfo.Name}
+                CharacterInfo={CharacterInfo}
               />
             );
           })}
