@@ -1,0 +1,21 @@
+[
+  {
+    "Name": "Elseth",
+    "ArmorClass": 14,
+    "Proficiency": 2,
+    "Proficient": [
+      "Nature",
+      "Animal Handling",
+      "Religion",
+      "Wisdom",
+      "Charisma"
+    ],
+    "MoveSpeed": 30,
+    "Constitution": 10,
+    "Strength": 8,
+    "Dexterity": 8,
+    "Intelligence": 12,
+    "Wisdom": 16,
+    "Charisma": 16
+  }
+]

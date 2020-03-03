@@ -6,9 +6,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Header PageName="Combat Calculator" />
-      <IonContent>
-        <p>home</p>
-      </IonContent>
+      <IonContent>Hi</IonContent>
     </>
   );
 };

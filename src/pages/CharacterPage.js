@@ -1,18 +1,32 @@
 import React from "react";
-import { IonContent, IonList, IonItem, IonIcon } from "@ionic/react";
+import { IonContent, IonRow } from "@ionic/react";
+import fakeCharacterData from "../Utilities/fakeCharacterData.json";
+
 import Header from "../components/Header/Header";
+import CharacterCard from "../components/CharacterCard/CharacterCard";
 
 function CharacterPage() {
+  console.log(fakeCharacterData);
   return (
     <>
       <Header PageName="Character Page" />
-      <IonContent>
-        <IonList>
-          <IonItem>
-            <IonIcon name="paper-plane" slot="start" />
-            Hi
-          </IonItem>
-        </IonList>
+      <IonContent
+        style={{ height: "Calc(100% - 50px" }}
+        scrollEvents={true}
+        onIonScrollStart={() => {}}
+        onIonScroll={() => {}}
+        onIonScrollEnd={() => {}}
+      >
+        <IonRow>
+          {fakeCharacterData.map(characterInfo => {
+            return (
+              <CharacterCard
+                key={characterInfo.Name}
+                characterInfo={characterInfo}
+              />
+            );
+          })}
+        </IonRow>
       </IonContent>
     </>
   );
