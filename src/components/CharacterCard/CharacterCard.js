@@ -8,8 +8,9 @@ import {
   IonCol,
   IonCardContent
 } from "@ionic/react";
-import CharacterSkill from "../CharacterSkill/CharacterSkill";
-import CharacterWeapon from "../CharacterWeapon/CharacterWeapon";
+import Skill from "../Skill/Skill";
+import Throw from "../SavingThrow/SavingThrow";
+import Weapon from "../Weapon/Weapon";
 
 function CharacterCard(props) {
   function calculateSkill(ability) {
@@ -24,6 +25,7 @@ function CharacterCard(props) {
           <IonCardHeader>
             <IonCardTitle>{props.characterInfo.Name}</IonCardTitle>
           </IonCardHeader>
+
           <IonCardContent>
             <IonCardSubtitle>Misc.</IonCardSubtitle>
             <IonRow>
@@ -54,6 +56,7 @@ function CharacterCard(props) {
                 </IonRow>
               </IonCol>
             </IonRow>
+
             <IonCardSubtitle>Ability Scores:</IonCardSubtitle>
             <IonRow>
               <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
@@ -118,109 +121,63 @@ function CharacterCard(props) {
                 Roll
               </IonCol>
             </IonRow>
+
             <IonCardSubtitle>Saving Throws:</IonCardSubtitle>
             <IonRow>
-              <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
-                Strength
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                {props.characterInfo.Proficient.find(
-                  element => element === "Strength"
-                ) !== undefined
-                  ? props.characterInfo.Strength +
-                    props.characterInfo.Proficiency
-                  : props.characterInfo.Strength}
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                Roll
-              </IonCol>
+              <Throw
+                Modifier={props.characterInfo.Strength}
+                Ability="Strength"
+                Proficient={props.characterInfo.Proficient}
+                Proficiency={props.characterInfo.Proficiency}
+              />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
-                Intelligence
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                {props.characterInfo.Proficient.find(
-                  element => element === "Intelligence"
-                ) !== undefined
-                  ? props.characterInfo.Intelligence +
-                    props.characterInfo.Proficiency
-                  : props.characterInfo.Intelligence}
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                Roll
-              </IonCol>
+              <Throw
+                Modifier={props.characterInfo.Intelligence}
+                Ability="Intelligence"
+                Proficient={props.characterInfo.Proficient}
+                Proficiency={props.characterInfo.Proficiency}
+              />
             </IonRow>
             <IonRow>
-              <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
-                Dexterity
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                {props.characterInfo.Proficient.find(
-                  element => element === "Dexterity"
-                ) !== undefined
-                  ? props.characterInfo.Dexterity +
-                    props.characterInfo.Proficiency
-                  : props.characterInfo.Dexterity}
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                Roll
-              </IonCol>
+              <Throw
+                Modifier={props.characterInfo.Dexterity}
+                Ability="Dexterity"
+                Proficient={props.characterInfo.Proficient}
+                Proficiency={props.characterInfo.Proficiency}
+              />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
-                Wisdom
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                {props.characterInfo.Proficient.find(
-                  element => element === "Wisdom"
-                ) !== undefined
-                  ? props.characterInfo.Wisdom + props.characterInfo.Proficiency
-                  : props.characterInfo.Wisdom}
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                Roll
-              </IonCol>
+              <Throw
+                Modifier={props.characterInfo.Wisdom}
+                Ability="Wisdom"
+                Proficient={props.characterInfo.Proficient}
+                Proficiency={props.characterInfo.Proficiency}
+              />
             </IonRow>
             <IonRow>
-              <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
-                Constitution
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                {props.characterInfo.Proficient.find(
-                  element => element === "Constitution"
-                ) !== undefined
-                  ? props.characterInfo.Constitution +
-                    props.characterInfo.Proficiency
-                  : props.characterInfo.Constitution}
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                Roll
-              </IonCol>
+              <Throw
+                Modifier={props.characterInfo.Constitution}
+                Ability="Constitution"
+                Proficient={props.characterInfo.Proficient}
+                Proficiency={props.characterInfo.Proficiency}
+              />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <IonCol sizeXs="5" sizeSm="3" sizeLg="5" sizeXl="3">
-                Charisma
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                {props.characterInfo.Proficient.find(
-                  element => element === "Charisma"
-                ) !== undefined
-                  ? props.characterInfo.Charisma +
-                    props.characterInfo.Proficiency
-                  : props.characterInfo.Charisma}
-              </IonCol>
-              <IonCol sizeXs="3" sizeSm="1" sizeLg="3" sizeXl="1">
-                Roll
-              </IonCol>
+              <Throw
+                Modifier={props.characterInfo.Charisma}
+                Ability="Charisma"
+                Proficient={props.characterInfo.Proficient}
+                Proficiency={props.characterInfo.Proficiency}
+              />
             </IonRow>
             <IonCardSubtitle>Skills:</IonCardSubtitle>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Acrobatics"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Dexterity}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Animal Handling"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Wisdom}
@@ -228,14 +185,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Arcana"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Intelligence}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Athletics"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Strength}
@@ -243,14 +200,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Deception"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Charisma}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="History"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Intelligence}
@@ -258,14 +215,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Insight"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Wisdom}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Intimidation"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Charisma}
@@ -273,14 +230,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Investigation"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Intelligence}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Medicine"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Wisdom}
@@ -288,14 +245,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Nature"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Intelligence}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Perception"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Wisdom}
@@ -303,14 +260,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Performance"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Charisma}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Persuasion"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Charisma}
@@ -318,14 +275,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Religion"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Intelligence}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Sleight Of Hand"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Dexterity}
@@ -333,14 +290,14 @@ function CharacterCard(props) {
               />
             </IonRow>
             <IonRow>
-              <CharacterSkill
+              <Skill
                 Skill="Stealth"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Dexterity}
                 Proficiency={props.characterInfo.Proficiency}
               />
               <IonCol sizeXs="12" sizeSm="2" sizeLg="12" sizeXl="2"></IonCol>
-              <CharacterSkill
+              <Skill
                 Skill="Survival"
                 Proficient={props.characterInfo.Proficient}
                 Modifier={props.characterInfo.Wisdom}
@@ -355,7 +312,7 @@ function CharacterCard(props) {
               <IonCol>Range: </IonCol>
               <IonCol></IonCol>
             </IonRow>
-            <CharacterWeapon
+            <Weapon
               Name="Axe"
               ToHit={
                 calculateSkill(props.characterInfo.Strength) +

@@ -1,9 +1,7 @@
 import React from "react";
 import { IonRow, IonCol } from "@ionic/react";
 
-function CharacterWeapon(props) {
-  console.log("+ " + props.ToHit);
-  console.log(props.ToHit >= 0);
+function Weapon(props) {
   return (
     <IonRow>
       <IonCol>{props.Name}</IonCol>
@@ -14,4 +12,4 @@ function CharacterWeapon(props) {
     </IonRow>
   );
 }
-export default CharacterWeapon;
+export default Weapon;

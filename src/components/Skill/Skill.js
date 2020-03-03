@@ -1,7 +1,7 @@
 import React from "react";
 import { IonCol } from "@ionic/react";
 
-function CharacterSkill(props) {
+function Skill(props) {
   function calculateSkill(ability) {
     const calculation = Math.floor((ability - 10) / 2);
     return calculation;
@@ -25,4 +25,4 @@ function CharacterSkill(props) {
   );
 }
 
-export default CharacterSkill;
+export default Skill;
